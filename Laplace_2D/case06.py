@@ -8,32 +8,38 @@ def SaveImage(Z,TickLevel,PlotTitle,SaveLoc):
     plt.colorbar(ticks=TickLevel)
     plt.show()
     fig.savefig(SaveLoc)
-    
+
     #For example:
     #SaveLoc='C:\\Users\\Ivan Chen\\final_project\\case6_1.png'
-    
-#Case2 x=50 y=50
+
+#Case6 A square heater with bounded triangular space.
 
 import numpy as np
 import matplotlib.pyplot as plt
 
 #range of x and y:
-x=50 #X=20 50 difference
-y=50
+x=30
+y=30
 
 #boundary temperature
 up=25
 down=25
-left=200
-right=200
+left=25
+right=25
 
 #initialize condition in x-y for t:
 X = np.arange(0, x, 1)
 Y = np.arange(0, y, 1)
 T = np.empty((x, y))
-T.fill(min(up,down,left,right))
+T.fill(25)
 
-#set boudary temperature
+#set boundary temperature
+def check(m,n):
+    if x//2-1<=m<=x//2+1 and y//2-5<=n<=y//2-3:
+        return True
+    else:
+        return False
+    
 for i in range(y):
     T[0][i]=up
     T[x-1][i]=down
@@ -42,33 +48,41 @@ for j in range(x):
     T[j][0]=left
     T[j][y-1]=right
     
-T[0][0]=(up+left)/2
-T[0][y-1]=(left+down)/2
-T[x-1][0]=(right+up)/2
-T[x-1][y-1]=(right+down)/2
+for i in range(1, x-1):
+    for j in range(1, y-1):
+        if check(i,j): #middle=200,const temperature
+            T[i][j]=100
 
 # Set the tick of contour and colorbar
-TickLevel = np.arange(20,201,20)
-
+Lmin, Lmax = 20, 100
+TickLevel = np.arange(Lmin,Lmax+1,20)
+            
 #print initial condition temperature
 '''
     #Please select where you would like to save your file
     #For example:
-SaveLoc01='C:\\Users\\Ivan Chen\\final_project\\case2_0.png'
+SaveLoc01='C:\\Users\\Ivan Chen\\final_project\\case6_0.png'
 '''
 SaveImage(T,TickLevel,'Initial Temperature Distribution',SaveLoc01)
 
 #Start repeating procedure 
+def triangular(x,y): #boundary of triangle
+    if y>0 and y-3**0.5*x<0 and y+3**0.5*x-30*(3**0.5)<0: 
+        return True
+    else:
+        return False
+    
 repeat=5000
 for iteration in range(0, repeat):
     for i in range(1, x-1, 1):
         for j in range(1, y-1, 1):
-            T[i,j]=(1/4)*(T[i+1][j]+T[i-1][j]+T[i][j+1]+T[i][j-1])
-            
-#print final condition temperature           
+            if (not check(i,j)) and (triangular(i,j)):
+                T[i,j] = 0.25 * (T[i+1][j] + T[i-1][j] + T[i][j+1] + T[i][j-1])
+        
+#print final condition temperature
 '''
     #Please select where you would like to save your file
     #For example:
-SaveLoc02='C:\\Users\\Ivan Chen\\final_project\\case2_1.png'
+SaveLoc02='C:\\Users\\Ivan Chen\\final_project\\case6_1.png'
 '''
 SaveImage(T,TickLevel,'Final Temperature Distribution',SaveLoc02)

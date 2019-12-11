@@ -54,8 +54,7 @@ TickLevel = np.arange(20,201,20)
 '''
     #Please select where you would like to save your file
     #For example:
-    SaveLoc01='C:\\Users\\Ivan Chen\\final_project\\case3_0.png'
-
+SaveLoc01='C:\\Users\\Ivan Chen\\final_project\\case3_0.png'
 '''
 
 SaveImage(T,TickLevel,'Initial Temperature Distribution',SaveLoc01)
@@ -73,7 +72,6 @@ for iteration in range(0, repeat):
 '''
     #Please select where you would like to save your file
     #For example:
-    SaveLoc02='C:\\Users\\Ivan Chen\\final_project\\case3_1.png'
-
+SaveLoc02='C:\\Users\\Ivan Chen\\final_project\\case3_1.png'
 '''
 SaveImage(T,TickLevel,'Final Temperature Distribution',SaveLoc02)
