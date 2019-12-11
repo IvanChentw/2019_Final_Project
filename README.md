@@ -1,5 +1,8 @@
 # 2019_Final_Project
 * 所需環境、安裝套件
-* 如何重現Demo時的結果 (助教會跑，若無法重現，Final
-將沒有分數)
+import numpy as np
+import matplotlib.pyplot as plt
+
 * 分工表
+
+*
