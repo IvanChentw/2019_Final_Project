@@ -72,3 +72,4 @@ for iteration in range(0, repeat):
 SaveLoc02='C:\\Users\\Ivan Chen\\final_project\\case1_1.png'
 '''
 SaveImage(T,TickLevel,'Final Temperature Distribution',SaveLoc02)
+
