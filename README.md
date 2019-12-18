@@ -29,4 +29,4 @@
     ppt:兩人共同製作
     檔案
         連育德 Differential Equation.ipynb, Advection Diffusion Equation, Diffusion Equation, Poission Equation, Wave Equation
-        陳暐翰 Laplace_2D
+        陳暐翰 Laplace_2D, Laplace_3D, Laplace results, Wave Equation 1D, Wave results
