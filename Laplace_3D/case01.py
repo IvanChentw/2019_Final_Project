@@ -66,6 +66,6 @@ for iteration in range(0, repeat):
     #For example:
 SaveLoc='C:\\Users\\Ivan Chen\\final_project\\laplace_3d\\case1\\case1_z_'
 '''
-
 for i in range(0,z):
     SaveImage(T[i],TickLevel,'Final Temperature Distribution for z='+str(i),SaveLoc+str(i+1)+'.png')
+
