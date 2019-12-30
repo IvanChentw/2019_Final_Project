@@ -35,7 +35,7 @@
 
 
 * 分工表
-    影片:N/A
+    影片:兩人共同製作
     ppt:兩人共同製作
     檔案
         連育德 Differential Equation.ipynb, Advection Diffusion Equation, Diffusion Equation, Poission Equation, Wave Equation
